@@ -1,0 +1,28 @@
+{
+  "root": "apps/test-next-e2e",
+  "sourceRoot": "apps/test-next-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/test-next-e2e/cypress.json",
+        "devServerTarget": "test-next:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "test-next:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/test-next-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["test-next"]
+}
